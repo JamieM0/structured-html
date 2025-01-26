@@ -1,0 +1,63 @@
+{
+  "title": "Automated Bread Production",
+  "breadcrumbs": [
+    {"label": "Food, Beverages & Tobacco", "url": "/categories/food-beverages-tobacco"},
+    {"label": "Food Items", "url": "/categories/food-items"},
+    {"label": "Bakery", "url": "/categories/bakery"},
+    {"label": "Breads & Buns", "url": "/categories/breads-buns"}
+  ],
+  "status": {
+    "label": "Partially Automated",
+    "progress": 65
+  },
+  "sections": [
+    {
+      "title": "Steps to Full Automation",
+      "type": "instructions",
+      "content": [
+        "Ingredient sourcing robotics (e.g., automated flour delivery systems)",
+        "AI-controlled dough preparation with humidity/temperature sensors",
+        "Robotic shaping and proofing chambers",
+        "Autonomous baking with self-cleaning ovens",
+        "Packaging and distribution via conveyor systems"
+      ]
+    },
+    {
+      "title": "Key Companies & Innovators",
+      "type": "companies",
+      "content": [
+        {
+          "name": "Wilkinson Baking",
+          "description": "Creator of the BreadBot, an autonomous bakery machine.",
+          "url": "#"
+        },
+        {
+          "name": "Panasonic",
+          "description": "Home bread machines with programmable recipes.",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "Technical Challenges",
+      "type": "challenges",
+      "content": [
+        "Ingredient sourcing without human intervention",
+        "Maintenance of robotic kneading systems",
+        "Customization for artisanal bread types"
+      ]
+    },
+    {
+      "title": "Predicted Timeline",
+      "type": "timeline",
+      "content": [
+        {"year": 2030, "event": "Full automation expected for small-scale bakeries"},
+        {"year": 2024, "event": "Current partial automation (mixing/baking)"}
+      ]
+    }
+  ],
+  "metadata": {
+    "last_updated": "October 2023",
+    "recent_source": "October 2023"
+  }
+}

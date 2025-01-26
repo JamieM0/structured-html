@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .status-bar { height: 20px; background: #eee; border-radius: 10px; margin: 20px 0; }
+        .status-progress { height: 100%; background: #4CAF50; border-radius: 10px; }
+        .section { margin: 40px 0; }
+        .company-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .company-card { padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .timeline { margin: 20px 0; padding: 10px; background: #f9f9f9; }
+        .pill { display: inline-block; padding: 5px 15px; background: #e0e0e0; border-radius: 20px; font-size: 0.9em; }
+        .breadcrumbs { color: #666; margin: 10px 0; font-size: 0.9em; }
+        .breadcrumbs a { color: #1a73e8; text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .instructions { background: #f5f5f5; padding: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <div class="breadcrumbs">
+            {% for crumb in breadcrumbs %}
+                <a href="{{ crumb.url }}">{{ crumb.label }}</a> ›
+            {% endfor %}
+        </div>
+        <div class="status">
+            <div class="pill">{{ status.label }}</div>
+            <div class="status-bar">
+                <div class="status-progress" style="width: {{ status.progress }}%;"></div>
+            </div>
+        </div>
+        {% for section in sections %}
+            <div class="section {% if section.type == 'instructions' %}instructions{% endif %}">
+                <h2>{{ section.title }}</h2>
+                {% if section.type == "instructions" %}
+                    <ol>
+                        {% for item in section.content %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ol>
+                {% elif section.type == "companies" %}
+                    <div class="company-grid">
+                        {% for company in section.content %}
+                            <div class="company-card">
+                                <h3>{{ company.name }}</h3>
+                                <p>{{ company.description }}</p>
+                                <a href="{{ company.url }}">Visit Website →</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% elif section.type == "challenges" %}
+                    <ul>
+                        {% for challenge in section.content %}
+                            <li>{{ challenge }}</li>
+                        {% endfor %}
+                    </ul>
+                {% elif section.type == "timeline" %}
+                    <div class="timeline">
+                        {% for entry in section.content %}
+                            <p><strong>{{ entry.year }}:</strong> {{ entry.event }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div class="metadata">
+            <p><strong>Last Updated:</strong> {{ metadata.last_updated }}</p>
+            <p><strong>Most Recent Source:</strong> {{ metadata.recent_source }}</p>
+            <button class="pill">Contribute to This Page</button>
+        </div>
+    </div>
+</body>
+</html>
