@@ -61,6 +61,15 @@
         {"year": 2030, "event": "Robotic maintenance systems deployed"},
         {"year": 2027, "event": "AI-assisted anomaly detection becomes standard"}
       ]
+    },
+    {
+      "title": "Critical Safety Requirements",
+      "type": "safety",
+      "content": [
+        "Robotic systems must withstand 500°C temperatures",
+        "Triple-redundant AI fail-safes for reactor shutdowns",
+        "Radiation-hardened sensor networks"
+      ]
     }
   ],
   "metadata": {

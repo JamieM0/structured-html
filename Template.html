@@ -35,6 +35,7 @@
             </div>
         </div>
         {% for section in sections %}
+
             <div class="section {% if section.type == 'instructions' %}instructions{% endif %}">
                 <h2>{{ section.title }}</h2>
                 {% if section.type == "instructions" %}
@@ -43,6 +44,7 @@
                             <li>{{ item }}</li>
                         {% endfor %}
                     </ol>
+
                 {% elif section.type == "companies" %}
                     <div class="company-grid">
                         {% for company in section.content %}
@@ -53,18 +55,31 @@
                             </div>
                         {% endfor %}
                     </div>
+
                 {% elif section.type == "challenges" %}
                     <ul>
                         {% for challenge in section.content %}
                             <li>{{ challenge }}</li>
                         {% endfor %}
                     </ul>
+
                 {% elif section.type == "timeline" %}
                     <div class="timeline">
                         {% for entry in section.content %}
                             <p><strong>{{ entry.year }}:</strong> {{ entry.event }}</p>
                         {% endfor %}
                     </div>
+
+                {% elif section.type == "safety" %}
+                    <div class="safety-section" style="background: #ffe6e6; padding: 15px; border-radius: 5px;">
+                        <h3>⚠️ Safety Notes</h3>
+                        <ul>
+                            {% for item in section.content %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
                 {% endif %}
             </div>
         {% endfor %}

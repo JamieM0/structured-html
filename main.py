@@ -1,7 +1,7 @@
 from jinja2 import Template
 import json
 
-testing = "nuclear-power"
+testing = "deepseek-nuclear"
 
 # Load JSON data
 with open("test-cases/"+testing+".json") as f:
