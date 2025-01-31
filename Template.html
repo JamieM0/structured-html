@@ -80,6 +80,12 @@
                         </ul>
                     </div>
 
+                {% elif section.type == "costs" %}
+                    <div class="cost-comparison">
+                        <p>Manual: {{ section.content.manual }}</p>
+                        <p>Automated: {{ section.content.automated }}</p>
+                    </div>
+
                 {% endif %}
             </div>
         {% endfor %}
