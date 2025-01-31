@@ -1,5 +1,13 @@
 from jinja2 import Template
 import json
+import os
+
+if(os.path("json-files") == False):
+    os.mkdir("json-files")
+if(os.path("search-digests") == False):
+    os.mkdir("search-digests")
+if(os.path("json-files") == False):
+    os.mkdir("json-files")
 
 jsonFileName = "bread_production"
 

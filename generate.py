@@ -1,3 +1,4 @@
+import os
 import sys
 
 from pydantic import BaseModel, Field, ValidationError
@@ -6,6 +7,13 @@ import requests
 import json
 import re
 from typing import List, Dict, Optional
+
+if(os.path("json-files") == False):
+    os.mkdir("json-files")
+if(os.path("search-digests") == False):
+    os.mkdir("search-digests")
+if(os.path("json-files") == False):
+    os.mkdir("json-files")
 
 # Define the Pydantic models matching your schema
 class Breadcrumb(BaseModel):
@@ -288,6 +296,9 @@ if __name__ == "__main__":
     output_file_main = sys.argv[3] if len(sys.argv) == 4 else f"{topic.lower().replace(' ', '_')}.json"
     output_file = output_file_prefix + output_file_main
 
+    if(search_str=="" or search_str_main==""):
+        print("Search file not found.")
+        sys.exit(1)
     try:
         article = generate_automation_article(topic, search_str)
 
